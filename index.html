@@ -8,11 +8,29 @@
             height: 640px;
             border: 1px solid black;
             background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        #appScreen {
+            position: absolute;
+            top: -640px;
+            left: 0;
+            width: 100%;
+            height: 640px;
+            background: #fff;
+            transition: top 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <div id="emulator"></div>
+    <div id="emulator">
+        <div id="appScreen">
+            <!-- Add your app icons here -->
+            <p>App 1</p>
+            <p>App 2</p>
+            <p>App 3</p>
+        </div>
+    </div>
     <script src="emulator.js"></script>
 </body>
 </html>
