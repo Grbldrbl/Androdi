@@ -21,7 +21,27 @@ class AndroidEmulator {
         });
     }
 
-    // Placeholder for more complex emulation logic
+    // emulator.js
+let touchStartY = 0;
+let touchEndY = 0;
+const emulator = document.getElementById('emulator');
+const appScreen = document.getElementById('appScreen');
+
+emulator.addEventListener('touchstart', function(event) {
+    touchStartY = event.touches[0].clientY;
+}, false);
+
+emulator.addEventListener('touchmove', function(event) {
+    touchEndY = event.touches[0].clientY;
+}, false);
+
+emulator.addEventListener('touchend', function() {
+    if (touchEndY > touchStartY + 50) { // Swipe down detected
+        appScreen.style.top = '0';
+    } else if (touchEndY < touchStartY - 50) { // Swipe up detected
+        appScreen.style.top = '-640px';
+    }
+}, false);
 }
 
 const canvas = document.createElement('canvas');
